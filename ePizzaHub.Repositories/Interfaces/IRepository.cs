@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace ePizzaHub.Repositories.Interfaces
 {
-    internal interface IRepository
+    public interface IRepository<TEntity> where TEntity : class
     {
+        IEnumerable<TEntity> GetAll();
+        TEntity Get(object id);
+        void Add(TEntity entity);
+        void Update(TEntity entity);
+        void Delete(object entity);
+        int SaveChanges();
     }
 }

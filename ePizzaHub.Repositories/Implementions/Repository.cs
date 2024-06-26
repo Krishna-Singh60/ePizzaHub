@@ -6,38 +6,43 @@ namespace ePizzaHub.Repositories.Implementions
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         protected readonly AppDbContext _db;
-        public Repository(AppDbContext db)
+        public Repository(AppDbContext db) //constructor injection
         {
             _db = db;
         }
         public void Add(TEntity entity)
         {
-            throw new NotImplementedException();
+           _db.Set<TEntity>().Add(entity);
         }
 
         public void Delete(object id)
         {
-            throw new NotImplementedException();
+            TEntity entity = _db.Set<TEntity>().Find(id);
+            if (entity != null)
+            {
+                _db.Set<TEntity>().Remove(entity);
+            }
         }
 
         public TEntity Get(object id)
         {
-            throw new NotImplementedException();
+            return _db.Set<TEntity>().Find(id);
         }
 
         public IEnumerable<TEntity> GetAll()
         {
-            throw new NotImplementedException();
+           return _db.Set<TEntity>().ToList();
         }
 
-        public void SaveChanges()
+        public int SaveChanges()
         {
-            throw new NotImplementedException();
+          return  _db.SaveChanges();
+
         }
 
         public void Update(TEntity entity)
         {
-            throw new NotImplementedException();
+           _db.Set<TEntity>().Update(entity);
         }
     }
 }
