@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ePizzaHub.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,5 +15,6 @@ namespace ePizzaHub.Repositories.Interfaces
         void Update(TEntity entity);
         void Delete(object entity);
         int SaveChanges();
+      
     }
 }

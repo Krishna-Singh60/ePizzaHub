@@ -1,4 +1,5 @@
 ﻿using ePizzaHub.core;
+using ePizzaHub.Model;
 using ePizzaHub.Repositories.Interfaces;
 
 namespace ePizzaHub.Repositories.Implementions
@@ -43,6 +44,11 @@ namespace ePizzaHub.Repositories.Implementions
         public void Update(TEntity entity)
         {
            _db.Set<TEntity>().Update(entity);
+        }
+
+        public UserModel ValidateUser(string email, string passowrd)
+        {
+            throw new NotImplementedException();
         }
     }
 }
