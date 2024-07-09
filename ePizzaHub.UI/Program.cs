@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 //Services Dependencies
 ConfigureDependencies.RegisterService(builder.Services, builder.Configuration);
 
+
 //Adding Cookied based Authentication
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(option =>
@@ -19,6 +20,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+//you can check now
 
 
 
@@ -35,7 +37,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthentication(); //Necessary to add middleware, unable to logindetails throuw HTTPContext
+app.UseAuthentication(); //Necessary to add middleware, unable to login details throuw HTTPContext
 app.UseAuthorization();
 
 app.MapControllerRoute(

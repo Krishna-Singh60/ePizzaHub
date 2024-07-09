@@ -1,8 +1,27 @@
-﻿@{
+﻿@model IEnumerable<ePizzaHub.Model.ItemModel>
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div class="container"
+<h2> Item List </h2>
+<div class="row g-3">
+    @foreach(var item in Model)
+    {
+        <div class="col-sm-4 col-lg-3 col-md-4 ">
+            <div class="card">
+                <img src="@item.ImageUrl" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Name</h5>
+                    <p class="card-text">@item.Description</p>
+                    <button href="#" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+            </div>
+    }
+</div>
 </div>
